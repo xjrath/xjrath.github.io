@@ -1,0 +1,106 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+}
+
+.container {
+  perspective: 800px;
+}
+
+.rotating-image {
+  width: 200px;
+  height: 200px;
+  transform-style: preserve-3d;
+  animation: rotate 3s linear infinite;
+  position: relative;
+}
+
+.front-face,
+.back-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.rotating-image img {
+  width: 100%;
+  height: 100%;
+}
+
+.front-face {
+  transform: rotateY(0deg);
+}
+
+.back-face {
+  transform: rotateY(180deg);
+}
+
+.random-text {
+  position: absolute;
+  top: 80%;
+  left: 70%;
+  text-align: center;
+  font-size: 14px;
+  color: rgb(84, 160, 67);
+  transform: translate(-50%, -50%) rotateY(0deg);
+  transform-style: preserve-3d;
+  animation: rotate 3s linear infinite;
+}
+
+.random-text:nth-child(2) {
+  top: 20%;
+  left: 80%;
+}
+
+.random-text:nth-child(3) {
+  top: 80%;
+  left: 30%;
+}
+
+.random-text:nth-child(4) {
+  top: 10%;
+  left: 30%;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotateY(0);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+.speed-slider-container {
+  margin-top: 20px;
+  text-align: center;
+  color: white;
+}
+
+.speed-slider {
+  width: 200px;
+}
+
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 23px;
+    height: 24px;
+    border: 0;
+    background: url('moomin.png');
+    cursor: pointer;
+  }
+  
+  .slider::-moz-range-thumb {
+    width: 23px;
+    height: 25px;
+    border: 0;
+    background: url('moomin.png');
+    cursor: pointer;
+  }
