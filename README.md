@@ -1,2 +1,0 @@
-# xjrath.github.io
-asdjkflskdfj
