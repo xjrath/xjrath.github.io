@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Xaver – Multimedia Art</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: sans-serif;
+      color: white;
+      background: black;
+    }
+
+    video#bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      padding: 3em 2em;
+      text-align: left;
+      max-width: 800px;
+      font-size: 2rem;
+      line-height: 1.5;
+    }
+
+    a {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <video id="bg" autoplay muted loop playsinline>
+    <source src="img/background.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="content">
+    <p>im xaver</p>
+    <p>studying multimedia art.</p>
+    <p>email me at <a href="mailto:xrath-mmtb2022@fh-salzburg.ac.at">xrath-mmtb2022@fh-salzburg.ac.at</a></p>
+  </div>
+
+  <script>
+    const video = document.getElementById("bg");
+
+    video.addEventListener("loadeddata", () => {
+      console.log("Video loaded");
+    });
+
+    video.addEventListener("playing", () => {
+      console.log("Video is playing");
+    });
+
+    video.muted = false;
+    video.volume = 1.0;
+    video.play().catch(err => {
+      console.warn("Autoplay with sound blocked by browser:", err);
+    });
+  </script>
+</body>
+</html>
